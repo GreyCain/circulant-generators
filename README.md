@@ -21,7 +21,7 @@ The main configuration file of .NET application. Parameters:
 The contents of the Task.xml file is as follows:
 ```xml
 <Task xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
-nodesDescription="6-750,1000,2500,5000,7500" grade="3" threadsCount="6" 
+nodesDescription="6-750,1000,2500,5000,7500" dimension="3" threadsCount="6" 
 outputFolderPath="Output/only1" fullName="Glukhikh A." isFullLogging="false" isFullReport="false" />
 ```
 
