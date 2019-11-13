@@ -15,8 +15,8 @@ namespace PCG.Library.Models.GeneratorObjects
         [XmlAttribute("nodesDescription")]
         public string NodesDescription { get; set; }
 
-        [XmlAttribute("grade")]
-        public int Grade { get; set; }
+        [XmlAttribute("dimension")]
+        public int Dimension { get; set; }
 
         [XmlAttribute("threadsCount")]
         public int ThreadsCount
@@ -41,7 +41,7 @@ namespace PCG.Library.Models.GeneratorObjects
         public bool IsFullReport { get; set; }
 
         /// <summary>
-        ///     Конфигурации с кол-вом узлов, для которых требуется найти
+        ///     Enumeration of nodes counts, which are used for circulant graphs synthesis
         /// </summary>
         [XmlIgnore]
         public List<int> Nodes

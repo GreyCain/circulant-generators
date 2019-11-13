@@ -15,15 +15,15 @@ namespace PCG.Library.Utilities
 
         }
 
-        public static List<BenchMarkResult> Method1(int nodesCount, int grade, bool onlyS1EqualOne = false, int limit = 1000)
+        public static List<BenchMarkResult> BasicDijkstraMethod(int nodesCount, int dimension, bool onlyS1EqualOne = false, int limit = 1000)
         {
             var diam = float.MaxValue;
             var avgDiam = float.MaxValue;
             //var lockEqual = new object();
-            var indexer = new int[grade];
+            var indexer = new int[dimension];
             var optimalParams = new List<Tuple<int[], long>>();
 
-            for (var i = 0; i < grade; i++)
+            for (var i = 0; i < dimension; i++)
             {
                 indexer[i] = i + 1;
             }
@@ -36,7 +36,7 @@ namespace PCG.Library.Utilities
 
             var bench = new List<BenchMarkResult>();
 
-            while (lim < limit && (onlyS1EqualOne && indexer[0] < 2 || !onlyS1EqualOne && indexer[0] + grade <= nodesCount / 2 + 1))
+            while (lim < limit && (onlyS1EqualOne && indexer[0] < 2 || !onlyS1EqualOne && indexer[0] + dimension <= nodesCount / 2 + 1))
             {
                 BasicCirculantGenerator.SpecialIncrement(nodesCount, ref indexer, onlyS1EqualOne);
 
@@ -55,12 +55,12 @@ namespace PCG.Library.Utilities
                 {
                     Memory = memory,
                     NodesCount = nodesCount,
-                    Grade = grade,
+                    Grade = dimension,
                     Total = startT.ElapsedTicks + startA.ElapsedTicks,
                     TimeSpans = new Tuple<string, long>[]
                     {
-                        new Tuple<string, long>("Инициализация", startA.ElapsedTicks),
-                        new Tuple<string, long>("Рассчет", startT.ElapsedTicks),
+                        new Tuple<string, long>("Init elapsed time", startA.ElapsedTicks),
+                        new Tuple<string, long>("Calculation", startT.ElapsedTicks),
                     }
 
                 });
@@ -71,17 +71,23 @@ namespace PCG.Library.Utilities
             return bench;
         }
 
-        public static long GetIterations(int nodes, int grade)
+        /// <summary>
+        /// Simulate Iterations
+        /// </summary>
+        /// <param name="nodes"></param>
+        /// <param name="dimension"></param>
+        /// <returns></returns>
+        public static long GetIterations(int nodes, int dimension)
         {
-            var indexer = new int[grade];
+            var indexer = new int[dimension];
             long iter = 1;
 
-            for (var i = 0; i < grade; i++)
+            for (var i = 0; i < dimension; i++)
             {
                 indexer[i] = i + 1;
             }
 
-            while (indexer[0] + grade <= nodes / 2 + 1)
+            while (indexer[0] + dimension <= nodes / 2 + 1)
             {
                 iter++;
                 BasicCirculantGenerator.SpecialIncrement(nodes, ref indexer, false);
@@ -90,15 +96,15 @@ namespace PCG.Library.Utilities
             return iter;
         }
 
-        public static List<BenchMarkResult> Method2(int nodesCount, int grade, bool onlyS1EqualOne = false, int limit = 1000)
+        public static List<BenchMarkResult> Method2(int nodesCount, int dimension, bool onlyS1EqualOne = false, int limit = 1000)
         {
             var diam = float.MaxValue;
             var avgDiam = float.MaxValue;
             //var lockEqual = new object();
-            var indexer = new int[grade];
+            var indexer = new int[dimension];
             var optimalParams = new List<Tuple<int[], long>>();
 
-            for (var i = 0; i < grade; i++)
+            for (var i = 0; i < dimension; i++)
             {
                 indexer[i] = i + 1;
             }
@@ -111,7 +117,7 @@ namespace PCG.Library.Utilities
 
             var bench = new List<BenchMarkResult>();
 
-            while (lim < limit && (onlyS1EqualOne && indexer[0] < 2 || !onlyS1EqualOne && indexer[0] + grade <= nodesCount / 2 + 1))
+            while (lim < limit && (onlyS1EqualOne && indexer[0] < 2 || !onlyS1EqualOne && indexer[0] + dimension <= nodesCount / 2 + 1))
             {
                 BasicCirculantGenerator.SpecialIncrement(nodesCount, ref indexer, onlyS1EqualOne);
 
@@ -125,11 +131,11 @@ namespace PCG.Library.Utilities
                 {
                     Memory = memory,
                     NodesCount = nodesCount,
-                    Grade = grade,
+                    Grade = dimension,
                     Total = startT.ElapsedTicks,
                     TimeSpans = new Tuple<string, long>[]
                     {
-                        new Tuple<string, long>("Рассчет", startT.ElapsedTicks),
+                        new Tuple<string, long>("Calculation", startT.ElapsedTicks),
                     }
 
                 });

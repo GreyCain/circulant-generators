@@ -48,8 +48,8 @@ namespace PCG.Library.Models.Validation
             return base.ToString();
         }
 
-        public const string HeadersString = "\"ID отчета\";\"ФИО студента\";\"Наименование файла\";\"Кол-во потоков\";\"Затраченное время на все топологии по n-узлам\";\"В днях:часах:минутах\"" +
-                                            "\"Состояние завершенности\";\"Кол-во узлов\";\"Диаметр\";\"Средняя длина\";\"Оптимальные описания\";\"Полное время, затрачиваемое на весь запуск (по отчету)\";\"Инфо о компьютере\"";
+        public const string HeadersString = "\"ID отчета\";\"Participant`s Fullname\";\"File Name\";\"Threads Count\";\"Total elapsed time for all topologies by n nodes\";\"Format days:hours:minutes\"" +
+                                            "\"Status\";\"Nodes Count\";\"Diameter\";\"Average length\";\"Optimal topologies description\";\"Total time (by report)\";\"Computer info\"";
 
         public string ToCsvString(string fileName)
         {
@@ -59,7 +59,7 @@ namespace PCG.Library.Models.Validation
             {
                 if (ext.IsFinished)
                 {
-                    var allOptimalInNodes = ext.OptimalCirculants != null ? string.Join(", ", ext.OptimalCirculants.Select(x => $"C({x.NodesCount}; {string.Join(", ", x.Generatrixes.Select(y => y.ToString()))})")) : string.Empty;
+                    var allOptimalInNodes = ext.OptimalCirculants != null ? string.Join(", ", ext.OptimalCirculants.Select(x => $"C({x.NodesCount}; {string.Join(", ", x.Generators.Select(y => y.ToString()))})")) : string.Empty;
 
                     var str = $"\"{ReportId}\";\"{StudentFullName}\";\"{fileName}\";\"{ThreadCount}\";\"{ext.OptimalCirculants?.FirstOrDefault()?.TotalMilliseconds}\";\"{new TimeSpan(0, 0, 0, 0, (int)(ext.OptimalCirculants?.FirstOrDefault()?.TotalMilliseconds ?? 0)):g}\"" +
                               $";\"{(ext.IsFinished ? "1" : "0")}\";" +

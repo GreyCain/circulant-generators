@@ -8,6 +8,11 @@ namespace PCG.Library.Utilities
 {
     public static class ReportBuilder
     {
+        /// <summary>
+        /// Base xml deserializer 
+        /// </summary>
+        /// <param name="xmlText"></param>
+        /// <returns></returns>
         public static BasicWorkInformation GetBasicWorkInformation(string xmlText)
         {
             var xmlSerialize = new XmlSerializer(typeof(BasicWorkInformation));
@@ -18,6 +23,11 @@ namespace PCG.Library.Utilities
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="state"></param>
+        /// <param name="filePath"></param>
         public static void SaveInfo(BasicWorkInformation state, string filePath)
         {
             var xmlSerialize = new XmlSerializer(typeof(BasicWorkInformation));

@@ -202,7 +202,7 @@ namespace PCG.Library.Models.Generators
             {
                 AverageLength = avgDiam,
                 Diameter = diam,
-                Generatrixes = x.Item1,
+                Generators = x.Item1,
                 NodesCount = nodesCount,
                 Ticks = x.Item2,
                 TotalMilliseconds = start.ElapsedMilliseconds
@@ -253,7 +253,7 @@ namespace PCG.Library.Models.Generators
             LastState.GoodConfigs = optimalParams.Select(x => x.Item1).ToArray();
             LastState.AverageDiameter = avgDiam;
             LastState.Diameter = diam;
-            LastState.Grade = grade;
+            LastState.Dimension = grade;
             LastState.CurrentNodesCount = nodesCount;
 
             TotalTime = start.ElapsedMilliseconds;

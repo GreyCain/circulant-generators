@@ -8,7 +8,7 @@
 
         public int[][] GoodConfigs { get; set; }
 
-        public int Grade { get; set; }
+        public int Dimension { get; set; }
 
         public float Diameter { get; set; }
 

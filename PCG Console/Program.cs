@@ -10,7 +10,7 @@ namespace PCG_Console
 {
     public static class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             var yourTask = SuperUtilities.LoadTask(new FileInfo(ConfigurationManager.AppSettings["FirstTaskPath"]).FullName);
             var circulantGenerator = new OptimizedParallelCirculantGenerator();
@@ -39,7 +39,7 @@ namespace PCG_Console
                     continue;
                 }
 
-                Console.WriteLine("Proram is stopping, please wait.");
+                Console.WriteLine("Program is stopping, please wait.");
 
                 circulantGenerator.Stop();
                 stopped = true;

@@ -173,7 +173,7 @@ namespace PCG.Library.Models.Generators
             {
                 AverageLength = avgDiam,
                 Diameter = diam,
-                Generatrixes = x.Item1,
+                Generators = x.Item1,
                 NodesCount = nodesCount,
                 Ticks = x.Item2,
                 TotalMilliseconds = start.ElapsedMilliseconds

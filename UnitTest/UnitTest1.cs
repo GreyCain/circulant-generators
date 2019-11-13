@@ -33,7 +33,7 @@ namespace UnitTest
                 GC.WaitForPendingFinalizers();
                 GC.Collect();
 
-                var result1 = BenchmarkUtilities.Method1(node.Item1, grade, limit: node.Item2);
+                var result1 = BenchmarkUtilities.BasicDijkstraMethod(node.Item1, grade, limit: node.Item2);
 
                 GC.Collect();
                 GC.WaitForPendingFinalizers();

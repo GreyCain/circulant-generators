@@ -56,14 +56,14 @@ namespace PCG.Library.Models.Generators
 
             foreach (var nodesCount in nodes)
             {
-                Console.WriteLine($"Генерация для кол-ва узлов: {nodesCount}");
+                Console.WriteLine($"Synthesis for nodes count: {nodesCount}");
 
                 var paramDescription = new ParametersDescription
                 {
                     OptimalCirculants = new List<CirculantParameters>()
                 };
 
-                var result = GenerateOptimalCirculants(nodesCount, task.Grade);
+                var result = GenerateOptimalCirculants(nodesCount, task.Dimension);
 
                 if (result == null || ForcedStop)
                 {
@@ -86,7 +86,7 @@ namespace PCG.Library.Models.Generators
 
             ReportBuilder.SaveInfo(_report, Path.Combine(task.OutputFolderPath, $"{_report.ValidFullName}-{DateTime.Now:yyyyMMdd.hhmm}.bin"));
 
-            Console.WriteLine($"Генерация закончена, нажмите stop (либо любой набор символов) для выхода.");
+            Console.WriteLine($"Synthesis is ended, type stop (or another chars) for exit.");
             //Console.In.Close();
             //Console.ReadKey(true);
         }
@@ -144,7 +144,7 @@ namespace PCG.Library.Models.Generators
         }
 
         /// <summary>
-        ///     config - config без грейда (в c# не нужен)
+        ///    Increment for circular graphs
         /// </summary>
         /// <param name="nodesCount"></param>
         /// <param name="config"></param>
@@ -175,6 +175,9 @@ namespace PCG.Library.Models.Generators
             config[0]++;
         }
 
+        /// <summary>
+        /// Comparer for arrays - all elements are equals
+        /// </summary>
         protected class ArrayComparer : IComparer<int[]>
         {
             public int Compare(int[] x, int[] y)
