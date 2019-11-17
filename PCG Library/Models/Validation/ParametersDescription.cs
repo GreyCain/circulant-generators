@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using PCG.Library.Models.GeneratorObjects;
+using System.Collections.Generic;
 using System.Xml.Serialization;
-using PCG.Library.Models.GeneratorObjects;
 
 namespace PCG.Library.Models.Validation
 {

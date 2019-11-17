@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace PCG.Library.Models.Generators
 {
+    /// <summary>
+    /// GCG algorithm - enchanced algorithm
+    /// </summary>
     public class OptimizedParallelCirculantGenerator : BasicCirculantGenerator
     {
         protected override List<CirculantParameters> GenerateOptimalCirculants(int nodesCount, int grade, bool byAvgDiam = false, bool onlyS1EqualOne = false)

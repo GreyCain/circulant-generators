@@ -17,7 +17,7 @@ namespace PCG.Library.Utilities
         };
 
         /// <summary>
-        ///  Loading "Task" for setting searching critertia of optimal circulant topologies
+        ///     Loading "Task" for setting searching critertia of optimal circulant topologies
         /// </summary>
         /// <param name="filePath"></param>
         /// <returns></returns>
@@ -32,7 +32,7 @@ namespace PCG.Library.Utilities
         }
 
         /// <summary>
-        /// Save "Task" in file.xml
+        ///     Save "Task" in file.xml
         /// </summary>
         /// <param name="task"></param>
         /// <param name="filePath"></param>
@@ -54,7 +54,7 @@ namespace PCG.Library.Utilities
         }
 
         /// <summary>
-        /// Descriptions
+        ///     Descriptions
         /// </summary>
         /// <param name="filePath"></param>
         /// <returns></returns>
@@ -74,7 +74,6 @@ namespace PCG.Library.Utilities
         }
 
         /// <summary>
-        /// 
         /// </summary>
         /// <param name="state"></param>
         /// <param name="filePath"></param>
@@ -96,11 +95,9 @@ namespace PCG.Library.Utilities
 
         public static void SaveRecordInFolder(IEnumerable<CirculantParameters> pars, string outputFolder)
         {
-
         }
 
         /// <summary>
-        /// 
         /// </summary>
         /// <param name="pars"></param>
         /// <param name="outputFolder"></param>
@@ -127,7 +124,6 @@ namespace PCG.Library.Utilities
                 }
             }
         }
-
 
         public static string GetProcessorInfo()
         {

@@ -30,7 +30,7 @@ namespace PCG.Validation
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine("Не удалось провести преобразование base64. Текст ошибки: {0}", ex.Message);
+                    Console.WriteLine("Cant convert from base64. Error message: {0}", ex.Message);
                 }
 
                 if (!string.IsNullOrEmpty(xml))
@@ -73,7 +73,7 @@ namespace PCG.Validation
                 }
             }
 
-            Console.WriteLine("Работа приложения закончена. Для выхода нажмите любую клавишу");
+            Console.WriteLine("Application end. Press any button for exit");
             Console.ReadKey(false);
         }
 
@@ -87,7 +87,7 @@ namespace PCG.Validation
 
             if (string.IsNullOrEmpty(allText))
             {
-                Console.WriteLine("Не найден файл или не удалось считать информацию");
+                Console.WriteLine("Can`t read text file.");
                 return;
             }
 
@@ -117,7 +117,7 @@ namespace PCG.Validation
         }
 
         /// <summary>
-        /// Открывает 
+        /// Open files and try to read string 
         /// </summary>
         /// <returns></returns>
         private static Tuple<string, string> ReadFileFromFolder()
@@ -143,7 +143,7 @@ namespace PCG.Validation
                 }
             }
 
-            Console.WriteLine("Не удалось прочитать файл.");
+            Console.WriteLine("Can`t read file.");
 
             return new Tuple<string, string>(string.Empty, string.Empty);
         }
