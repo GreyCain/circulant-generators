@@ -17,8 +17,8 @@ namespace PCG.Library.Models.Generators
 
         private static int[] DejkstraPath(int nodeIndex, byte[][] a)
         {
-            var d = new int[a.Length]; // минимальное расстояние
-            var v = new int[a.Length]; // посещенные вершины
+            var d = new int[a.Length]; // min path to all vertices
+            var v = new int[a.Length]; // visited vertices
 
             int minindex;
 
@@ -30,7 +30,6 @@ namespace PCG.Library.Models.Generators
 
             d[nodeIndex] = 0;
 
-            // Шаг алгоритма
             do
             {
                 minindex = int.MaxValue;
@@ -38,16 +37,13 @@ namespace PCG.Library.Models.Generators
 
                 for (var i = 0; i < a.Length; i++)
                 {
-                    // Если вершину ещё не обошли и вес меньше min
                     if (v[i] == 1 && d[i] < min)
                     {
-                        // Переприсваиваем значения
                         min = d[i];
                         minindex = i;
                     }
                 }
 
-                // Добавляем найденный минимальный вес к текущему весу вершины и сравниваем с текущим минимальным весом вершины
                 if (minindex != int.MaxValue)
                 {
                     for (var i = 0; i < a.Length; i++)

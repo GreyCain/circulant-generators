@@ -20,8 +20,8 @@ namespace PCG.Library.Models.Generators
 
         private static int[] CirculantDejkstraPath(int nodeIndex, int length, int[] generators)
         {
-            var d = new int[length]; // минимальное расстояние
-            var v = new int[length]; // посещенные вершины
+            var d = new int[length]; 
+            var v = new int[length]; 
 
             int minIndex;
 
@@ -33,7 +33,6 @@ namespace PCG.Library.Models.Generators
 
             d[nodeIndex] = 0;
 
-            // Шаг алгоритма
             do
             {
                 minIndex = int.MaxValue;
@@ -41,16 +40,13 @@ namespace PCG.Library.Models.Generators
 
                 for (var i = 0; i < length; i++)
                 {
-                    // Если вершину ещё не обошли и вес меньше min
                     if (v[i] == 1 && d[i] < min)
                     {
-                        // Переприсваиваем значения
                         min = d[i];
                         minIndex = i;
                     }
                 }
 
-                // Добавляем найденный минимальный вес к текущему весу вершины и сравниваем с текущим минимальным весом вершины
                 if (minIndex != int.MaxValue)
                 {
                     foreach (var x in generators)
